@@ -43,7 +43,7 @@ public class HttpHandler {
     }
 
     private String convertStreamToString(InputStream is) {
-        Log.e(TAG,"Cnnvert String");
+        Log.e(TAG,"Convert String");
         BufferedReader reader = new BufferedReader(new InputStreamReader(is));
         StringBuilder sb = new StringBuilder();
 

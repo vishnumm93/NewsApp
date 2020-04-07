@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
                     JSONArray articlesResponse = jsonObj.getJSONArray("articles");
 
                     // looping through All Contacts
-                    for (int i = 0; i < articlesResponse.length(); i++) {
+                    for (int i = 0; i < 3; i++) {
 
                         String id,name,author,title,description,url,imageUrl,publishedAt,content;
 
@@ -125,10 +125,10 @@ public class MainActivity extends AppCompatActivity {
                             url = articleObject.getString("url");
                         }
 
-                        if (articleObject.getString("imageUrl") == null ){
+                        if (articleObject.getString("urlToImage") == null ){
                             imageUrl = "Not Available";
                         } else{
-                            imageUrl = articleObject.getString("imageUrl");
+                            imageUrl = articleObject.getString("urlToImage");
                         }
 
                         if (articleObject.getString("publishedAt") == null ){
@@ -185,7 +185,7 @@ public class MainActivity extends AppCompatActivity {
             if (pDialog.isShowing())
                 pDialog.dismiss();
 
-         homeAdapter.notifyDataSetChanged();
+        homeAdapter.notifyDataSetChanged();
         }
 
     }

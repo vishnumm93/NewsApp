@@ -13,6 +13,10 @@ public class Articles {
 
     private Source source;
 
+    public Articles(){
+
+    }
+
     public Articles(String publishedAt, String author, String urlToImage, String description, Source source, String title, String url, String content) {
         this.publishedAt = publishedAt;
         this.author = author;

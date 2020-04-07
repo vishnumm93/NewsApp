@@ -2,6 +2,7 @@ package com.vishnu.newsapp.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,12 +17,14 @@ import com.bumptech.glide.Glide;
 import com.vishnu.newsapp.Model.Articles;
 import com.vishnu.newsapp.NewsDetailsAcitivity;
 import com.vishnu.newsapp.R;
+import com.vishnu.newsapp.Utils.DBHelper;
 
 import java.util.ArrayList;
 
 public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
     private Context context;
     private ArrayList<Articles> articles;
+    DBHelper wishlistDB;
 
     public HomeAdapter(Context context, ArrayList<Articles> articles) {
         this.context = context;
@@ -74,7 +77,8 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
             saveButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
+                    Log.d("Adapter:-","Inserting Values into Wishlist Database");
+                    wishlistDB.insertWishlist(articles.get(getLayoutPosition()).getSource(),articles.get(getLayoutPosition()).getTitle(),articles.get(getLayoutPosition()).getDescription(),articles.get(getLayoutPosition()).getAuthor(),articles.get(getLayoutPosition()).getPublishedAt(),articles.get(getLayoutPosition()).getContent(),articles.get(getLayoutPosition()).getUrl(),articles.get(getLayoutPosition()).getUrlToImage());
                 }
             });
         }
